@@ -1,0 +1,35 @@
+# Jekyll configuration for Morphism Documentation
+
+# Site settings
+title: Morphism Documentation
+description: Comprehensive documentation for the Morphism Club ecosystem
+baseurl: "/document" # the subpath of your site
+url: "" # the base hostname & protocol
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
+# Default layout
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
