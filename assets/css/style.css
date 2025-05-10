@@ -145,6 +145,52 @@ footer {
   overflow-x: auto;
 }
 
+/* Mermaid Diagrams */
+.mermaid {
+  margin: 1rem 0;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mermaid theme overrides */
+.mermaid .actor {
+  fill: #e1f5fe !important;
+  stroke: #0288d1 !important;
+}
+
+.mermaid .messageText {
+  fill: #333 !important;
+}
+
+.mermaid .note {
+  fill: #fff8e1 !important;
+  stroke: #ffd54f !important;
+}
+
+.mermaid .noteText {
+  fill: #333 !important;
+}
+
+.mermaid .flowchart-link {
+  stroke: #0288d1 !important;
+}
+
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon,
+.mermaid .node path {
+  fill: #e1f5fe !important;
+  stroke: #0288d1 !important;
+}
+
+.mermaid .label {
+  color: #333 !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   header nav ul {
