@@ -45,22 +45,7 @@ Platform administrators manage the overall ecosystem and ensure its proper funct
      - Adding referrer information to the dashboard
    - Distribute commission payments to referrers and chiefs
 
-```mermaid
-sequenceDiagram
-    participant Admin as Platform Admin
-    participant Systems as Morphism Systems
-    participant Blockchain as Blockchain
-    
-    Admin->>Systems: Deploy & Configure Contracts
-    Systems->>Blockchain: Deploy Contracts
-    Admin->>Systems: Set Up Web Platform
-    Admin->>Systems: Add Projects to Dashboard
-    Admin->>Systems: Register Chiefs
-    Admin->>Systems: Add Referrers
-    Systems->>Blockchain: Write Referral Codes
-    Admin->>Systems: Process Commission Payments
-    Systems->>Blockchain: Send Reward Transactions
-```
+{% include admin_workflow.html %}
 
 ### Project Owner Workflow
 
@@ -76,18 +61,7 @@ Project owners are the creators seeking funding through NFT sales:
    - Monitor referral performance and sales metrics
    - Coordinate with Chiefs and Referrers to optimize campaign performance
 
-```mermaid
-sequenceDiagram
-    participant Owner as Project Owner
-    participant Admin as Platform Admin
-    participant Chiefs as Chiefs & Referrers
-    
-    Owner->>Admin: Provide Project Information
-    Admin->>Chiefs: Configure Systems
-    Owner->>Chiefs: Share Sales Targets
-    Owner->>Admin: Monitor Campaign Progress
-    Owner->>Chiefs: Coordinate Marketing Efforts
-```
+{% include project_owner_workflow.html %}
 
 ### Chief Workflow
 
@@ -103,18 +77,7 @@ Chiefs manage groups of referrers and earn commissions on their sales:
    - Receive commission payments for referrer sales
    - Track commission payments and distribution
 
-```mermaid
-sequenceDiagram
-    participant Chief as Chief
-    participant Admin as Platform Admin
-    participant Referrers as Referrers
-    
-    Chief->>Referrers: Recruit Referrers
-    Chief->>Admin: Provide Referrer Information
-    Admin->>Referrers: Register Referrers
-    Chief->>Admin: Monitor Referrer Performance
-    Admin->>Chief: Receive Commission Payments
-```
+{% include chief_workflow.html %}
 
 ### Referrer Workflow
 
@@ -130,17 +93,7 @@ Referrers promote NFT sales and earn commissions on purchases made with their re
    - Receive commission payments for successful sales
    - Monitor commission status through the dashboard (if given access)
 
-```mermaid
-sequenceDiagram
-    participant Referrer as Referrer
-    participant Buyers as Buyers
-    participant Platform as Platform
-    
-    Referrer->>Buyers: Promote NFT Projects
-    Referrer->>Buyers: Share Referral Codes
-    Buyers->>Platform: Purchase with Referral Code
-    Platform->>Referrer: Receive Commission Payments
-```
+{% include referrer_workflow.html %}
 
 ## System Interaction Flow
 
@@ -202,56 +155,12 @@ The contracts ensure transparent and secure execution of business logic on the b
 
 ### NFT Purchase Flow
 
-```mermaid
-sequenceDiagram
-    participant User as User
-    participant Web as Web
-    participant Contracts as Contracts
-    participant Dashboard as Dashboard
-    
-    User->>Web: Connect Wallet
-    User->>Web: Select NFT
-    User->>Web: Apply Referral Code
-    Web->>Contracts: Validate Code
-    Contracts-->>Web: Return Validation Result
-    User->>Web: Confirm Purchase
-    Web->>Contracts: mintWithETHAndCode()
-    Contracts-->>Web: Return Transaction Result
-    Web->>User: Display Success
-    Contracts->>Dashboard: Emit Minted Event
-    Note over Dashboard: Process Purchase Event
-    Note over Dashboard: Calculate Commissions
-```
+{% include nft_purchase_flow.html %}
 
 ### Commission Payment Flow
 
-```mermaid
-sequenceDiagram
-    participant Admin as Admin
-    participant Dashboard as Dashboard
-    participant Blockchain as Blockchain
-    
-    Admin->>Dashboard: View Purchase Events
-    Admin->>Dashboard: Select Event for Commission Payment
-    Note over Dashboard: Calculate Commission
-    Admin->>Dashboard: Confirm Payment
-    Dashboard->>Blockchain: Send ETH Transaction
-    Blockchain-->>Dashboard: Return Transaction Result
-    Note over Dashboard: Update Payment Status
-    Dashboard->>Admin: Display Success
-```
+{% include commission_payment_flow.html %}
 
 ### Referral Code Creation Flow
 
-```mermaid
-sequenceDiagram
-    participant Admin as Admin
-    participant Dashboard as Dashboard
-    participant Contracts as Contracts
-    
-    Admin->>Dashboard: Create Referral Code
-    Note over Dashboard: Store in Database
-    Dashboard->>Contracts: addReferralCode()
-    Contracts-->>Dashboard: Return Result
-    Dashboard->>Admin: Display Success
-```
+{% include referral_code_creation_flow.html %}

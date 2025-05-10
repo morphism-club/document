@@ -1,0 +1,13 @@
+<div class="diagram">
+<div class="mermaid">
+sequenceDiagram
+    participant Admin as Admin
+    participant Dashboard as Dashboard
+    participant Contracts as Contracts
+    Admin->>Dashboard: Create Referral Code
+    Note over Dashboard: Store in Database
+    Dashboard->>Contracts: addReferralCode()
+    Contracts-->>Dashboard: Return Result
+    Dashboard->>Admin: Display Success
+</div>
+</div>

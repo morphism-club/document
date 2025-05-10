@@ -1,0 +1,21 @@
+<div class="diagram">
+<div class="mermaid">
+sequenceDiagram
+    participant User as User
+    participant Web as Web
+    participant Contracts as Contracts
+    participant Dashboard as Dashboard
+    User->>Web: Connect Wallet
+    User->>Web: Select NFT
+    User->>Web: Apply Referral Code
+    Web->>Contracts: Validate Code
+    Contracts-->>Web: Return Validation Result
+    User->>Web: Confirm Purchase
+    Web->>Contracts: mintWithETHAndCode()
+    Contracts-->>Web: Return Transaction Result
+    Web->>User: Display Success
+    Contracts->>Dashboard: Emit Minted Event
+    Note over Dashboard: Process Purchase Event
+    Note over Dashboard: Calculate Commissions
+</div>
+</div>
