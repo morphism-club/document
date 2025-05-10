@@ -1,0 +1,16 @@
+<div class="diagram">
+<div class="mermaid">
+sequenceDiagram
+    participant Admin as Admin
+    participant Dashboard as Dashboard
+    participant Blockchain as Blockchain
+    Admin->>Dashboard: View Purchase Events
+    Admin->>Dashboard: Select Event for Commission Payment
+    Note over Dashboard: Calculate Commission
+    Admin->>Dashboard: Confirm Payment
+    Dashboard->>Blockchain: Send ETH Transaction
+    Blockchain-->>Dashboard: Return Transaction Result
+    Note over Dashboard: Update Payment Status
+    Dashboard->>Admin: Display Success
+</div>
+</div>
