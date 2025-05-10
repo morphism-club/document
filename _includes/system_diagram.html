@@ -1,29 +1,16 @@
 <div class="diagram">
-<pre>
-┌─────────────────────┐      ┌─────────────────────┐      ┌─────────────────────┐
-│                     │      │                     │      │                     │
-│  Morphism Dashboard │◄────►│  Morphism Contracts │◄────►│   Morphism Web      │
-│  (Admin Interface)  │      │  (Blockchain Logic) │      │  (User Interface)   │
-│                     │      │                     │      │                     │
-└─────────────────────┘      └─────────────────────┘      └─────────────────────┘
-         ▲                             ▲                            ▲
-         │                             │                            │
-         │                             │                            │
-         │                             ▼                            │
-         │                    ┌─────────────────────┐              │
-         │                    │                     │              │
-         └────────────────────┤   Blockchain        ├──────────────┘
-                              │   (Optimism)        │
-                              │                     │
-                              └─────────────────────┘
-                                        ▲
-                                        │
-                                        ▼
-                              ┌─────────────────────┐
-                              │                     │
-                              │   External APIs     │
-                              │   (Chainlink, etc.) │
-                              │                     │
-                              └─────────────────────┘
-</pre>
+<div class="mermaid">
+flowchart TD
+    Dashboard["Morphism Dashboard<br/>(Admin Interface)"]
+    Contracts["Morphism Contracts<br/>(Blockchain Logic)"]
+    Web["Morphism Web<br/>(User Interface)"]
+    Blockchain["Blockchain<br/>(Optimism)"]
+    APIs["External APIs<br/>(Chainlink, etc.)"]
+    
+    Dashboard <--> Contracts
+    Contracts <--> Web
+    Dashboard <--> Blockchain
+    Web <--> Blockchain
+    Blockchain <--> APIs
+</div>
 </div>
